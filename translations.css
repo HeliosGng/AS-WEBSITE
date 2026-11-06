@@ -1,0 +1,13 @@
+/* --- Language Switcher Rules ---
+   The <html> element carries data-lang="en" (default) or data-lang="sq".
+   Everything marked .en / .sq is shown or hidden accordingly. */
+ 
+html[data-lang="en"] .sq,
+html:not([data-lang]) .sq {
+  display: none !important;
+}
+ 
+html[data-lang="sq"] .en {
+  display: none !important;
+}
+ 

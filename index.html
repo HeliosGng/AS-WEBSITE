@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermann Gmeiner School — School Activities</title>
+  <!-- Apply saved language before first paint (no flash) -->
+  <script>
+    try {
+      var l = localStorage.getItem("hg_lang");
+      if (l === "sq" || l === "en") {
+        document.documentElement.setAttribute("data-lang", l);
+        document.documentElement.lang = l;
+      }
+    } catch (e) {}
+  </script>
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="translations.css">
+</head>
+<body>
+ 
+  <!-- Floating Quick Action WhatsApp Button -->
+  <a href="https://wa.me/355694858002?text=P%C3%ABrsh%C3%ABndetje!%20Jam%20i%20interesuar%20p%C3%ABr%20krijimin%20e%20nj%C3%AB%20website-i." target="_blank" rel="noopener" class="floating-whatsapp-btn" title="WhatsApp">
+    💬 <span class="wa-text"><span class="sq">Të duhet një Website?</span><span class="en">Need a Website?</span></span>
+  </a>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-notification" class="toast"></div>
+ 
+  <!-- 3D Flying Floating Book Element -->
+  <div class="flying-book-container" id="flying-book" aria-hidden="true">
+    <div class="flying-book-3d">
+      <div class="book-cover book-front"></div>
+      <div class="book-pages"></div>
+      <div class="book-cover book-back"></div>
+    </div>
+  </div>
+ 
+  <div class="page-wrapper">
+ 
+    <!-- 1. Header and Navigation -->
+    <header class="header">
+      <a href="#" class="logo-container">
+        <img src="https://www.hermanngmeiner.edu.al/images/favicon.png" alt="Hermann Gmeiner School logo" class="site-logo-img" onerror="this.style.display='none'">
+        <span class="logo-text">Hermann Gmeiner</span>
+      </a>
+ 
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+ 
+      <nav class="nav-links" id="nav-links-container">
+        <a href="#categories" class="nav-link-item">
+          <span class="sq">Kategoritë</span><span class="en">Categories</span>
+        </a>
+        <a href="#activities" class="nav-link-item">
+          <span class="sq">Aktivitetet</span><span class="en">Activities</span>
+        </a>
+        <a href="#my-registrations-section" class="nav-link-item">
+          <span class="sq">Regjistrimet e Mia</span><span class="en">My Registrations</span>
+        </a>
+        <a href="#spotlight" class="nav-link-item">
+          <span class="sq">Prapa Skenave</span><span class="en">Spotlight</span>
+        </a>
+        <a href="#faq" class="nav-link-item">
+          <span class="sq">Pyetje</span><span class="en">FAQ</span>
+        </a>
+        <a href="#about" class="nav-link-item">
+          <span class="sq">Rreth Nesh</span><span class="en">About Us</span>
+        </a>
+      </nav>
+ 
+      <div class="header-actions">
+        <div class="lang-switch-container">
+          <span class="lang-code">EN</span>
+          <label class="switch" title="Switch Language / Ndrysho Gjuhën">
+            <input type="checkbox" id="lang-checkbox-trigger" aria-label="Switch language">
+            <span class="slider"></span>
+          </label>
+          <span class="lang-code">SQ</span>
+        </div>
+        <a href="#activities" class="btn btn-primary desktop-cta">
+          <span class="sq">Regjistrohu</span><span class="en">Join a Club</span>
+        </a>
+      </div>
+    </header>
+ 
+    <main>
+      <!-- 2. Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>
+            <span class="sq">Eksploro Pasionin Tënd në Shkollën Hermann Gmeiner</span>
+            <span class="en">Discover Your Passion at Hermann Gmeiner School</span>
+          </h1>
+          <p>
+            <span class="sq">Nga zhvillimi i website-ve dhe konkurset teknologjike te kampionati i futbollit, teatri dhe olimpiadat shkencore. Zbuloni aktivitetet jashtëshkollore që zhvillojnë të ardhmen tuaj!</span>
+            <span class="en">From web development and tech competitions to football championships, drama, and science olympiads. Explore extracurricular activities shaping your future!</span>
+          </p>
+          <div class="hero-buttons">
+            <a href="#activities" class="btn btn-primary">
+              <span class="sq">Eksploro Aktivitetet</span><span class="en">Explore Activities</span>
+            </a>
+            <a href="#categories" class="btn btn-secondary">
+              <span class="sq">Shiko Kategoritë</span><span class="en">View Categories</span>
+            </a>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- 3. Categories Ticker -->
+      <section id="categories" class="section">
+        <h2 class="section-title">
+          <span class="sq">Kategoritë Kryesore</span><span class="en">Main Categories</span>
+        </h2>
+        <div class="auto-rotating-ticker">
+          <div class="ticker-track">
+            <div class="ticker-item">💻 <span class="sq">Teknologji & Web</span><span class="en">Tech & Web Dev</span> — <span class="sq">Programim, Dizajn & Konkurse</span><span class="en">Coding, Design & Competitions</span></div>
+            <div class="ticker-item">⚽ <span class="sq">Sporte & Kampionate</span><span class="en">Sports & Leagues</span> — <span class="sq">Futboll, Basketboll & Stërvitje</span><span class="en">Football, Basketball & Training</span></div>
+            <div class="ticker-item">🎭 <span class="sq">Teatër & Debat</span><span class="en">Drama & Debate</span> — <span class="sq">Aktrim, Spektakle & Oratori</span><span class="en">Acting, Shows & Public Speaking</span></div>
+            <div class="ticker-item">📈 <span class="sq">Marketing & Akademi</span><span class="en">Marketing & Academics</span> — <span class="sq">Biznes, Marketing & Olimpiada</span><span class="en">Business, Marketing & Olympiads</span></div>
+            <div class="ticker-item">💻 <span class="sq">Teknologji & Web</span><span class="en">Tech & Web Dev</span> — <span class="sq">Programim, Dizajn & Konkurse</span><span class="en">Coding, Design & Competitions</span></div>
+            <div class="ticker-item">⚽ <span class="sq">Sporte & Kampionate</span><span class="en">Sports & Leagues</span> — <span class="sq">Futboll, Basketboll & Stërvitje</span><span class="en">Football, Basketball & Training</span></div>
+            <div class="ticker-item">🎭 <span class="sq">Teatër & Debat</span><span class="en">Drama & Debate</span> — <span class="sq">Aktrim, Spektakle & Oratori</span><span class="en">Acting, Shows & Public Speaking</span></div>
+            <div class="ticker-item">📈 <span class="sq">Marketing & Akademi</span><span class="en">Marketing & Academics</span> — <span class="sq">Biznes, Marketing & Olimpiada</span><span class="en">Business, Marketing & Olympiads</span></div>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- 4. Interactive Search, Filters, Sorting & Favorites Grid -->
+      <section id="activities" class="section">
+        <h2 class="section-title">
+          <span class="sq">Aktivitetet dhe Klubet e Shkollës</span><span class="en">School Clubs & Activities</span>
+        </h2>
+ 
+        <div class="filter-controls">
+          <div class="search-box">
+            <input type="text" id="search-input">
+          </div>
+          <div class="category-select-box">
+            <select id="category-filter">
+              <option value="All"></option>
+              <option value="Sports"></option>
+              <option value="Technology"></option>
+              <option value="Arts"></option>
+              <option value="Education"></option>
+            </select>
+          </div>
+          <div class="sort-select-box">
+            <select id="sort-select">
+              <option value="default">Sort by...</option>
+              <option value="date-asc">Date: Earliest first</option>
+              <option value="date-desc">Date: Latest first</option>
+              <option value="title-asc">Title (A-Z)</option>
+              <option value="title-desc">Title (Z-A)</option>
+            </select>
+          </div>
+          <button id="fav-filter-btn" class="btn btn-secondary fav-filter-btn" title="Toggle Favorites Only">
+            ⭐ <span class="sq">Të preferuara</span><span class="en">Favorites</span> (<span id="fav-count">0</span>)
+          </button>
+        </div>
+ 
+        <div id="activities-grid" class="activities-grid">
+          <!-- Populated dynamically via JavaScript -->
+        </div>
+ 
+        <div id="empty-state" class="empty-state hidden">
+          <p>🚫 <span class="sq">Nuk u gjet asnjë aktivitet që përkon me kërkimin ose filtrat tuaj.</span><span class="en">No activities found matching your search or filters.</span></p>
+          <button id="reset-filters-btn" class="btn btn-primary" style="margin-top: 1rem;">
+            <span class="sq">Pastro të gjitha filtrat</span><span class="en">Clear all filters</span>
+          </button>
+        </div>
+      </section>
+ 
+      <!-- 5. My Registrations Area -->
+      <section id="my-registrations-section" class="section section-alt">
+        <h2 class="section-title">
+          <span class="sq">Kontrollo Regjistrimet e Mia</span><span class="en">Check My Registrations</span>
+        </h2>
+        <div class="registrations-lookup-box">
+          <p class="lookup-instruction">
+            <span class="sq">Fut adresën tuaj të email-it për të parë aktivitetet në të cilat jeni regjistruar:</span>
+            <span class="en">Enter your email address below to view activities you have registered for:</span>
+          </p>
+          <div class="lookup-form">
+            <input type="email" id="lookup-email">
+            <button id="lookup-btn" class="btn btn-primary">
+              <span class="sq">Shfaq Regjistrimet</span><span class="en">Lookup Registrations</span>
+            </button>
+          </div>
+          <div id="my-registrations-result" class="registrations-result-list"></div>
+        </div>
+      </section>
+ 
+      <!-- 6. Idea 1: Behind the Scenes & Student Spotlight -->
+      <section id="spotlight" class="section">
+        <h2 class="section-title">
+          <span class="sq">Prapa Skenave & Komuniteti Ynë</span><span class="en">Behind the Scenes & Our Community</span>
+        </h2>
+        <div class="spotlight-grid">
+          <div class="spotlight-card">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Coding Lab" loading="lazy">
+            <div class="spotlight-info">
+              <h3><span class="sq">Laboratori i Inovacionit</span><span class="en">Innovation Lab</span></h3>
+              <p><span class="sq">Nxënësit duke punuar në projektet e tyre të faqeve web gjatë orëve pas shkolle.</span><span class="en">Students working hands-on on their web projects during after-school hours.</span></p>
+            </div>
+          </div>
+          <div class="spotlight-card">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="School Activities" loading="lazy">
+            <div class="spotlight-info">
+              <h3><span class="sq">Puna në Grup & Argëtim</span><span class="en">Teamwork & Fun</span></h3>
+              <p><span class="sq">Bashkëpunim dhe energji pozitive mes nxënësve në çdo aktivitet klubi.</span><span class="en">Collaboration and positive energy among students in every club activity.</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Idea 3: Student FAQ (Pyetjet më të Shpeshta me Ton Njerëzor) -->
+      <section id="faq" class="section section-alt">
+        <h2 class="section-title">
+          <span class="sq">Pyetje të Shpeshta nga Nxënësit</span><span class="en">Student FAQ</span>
+        </h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <h4>❓ <span class="sq">A mund të regjistrohem te disa klube njëkohësisht?</span><span class="en">Can I register for multiple clubs at once?</span></h4>
+            <p><span class="sq">Po, absolutisht! Mjafton të zgjedhësh aktivitetet që të pëlqejnë dhe të regjistrohesh me email-in tënd për secilën prej tyre.</span><span class="en">Yes, absolutely! Just pick the activities you like and register with your email for each of them.</span></p>
+          </div>
+          <div class="faq-item">
+            <h4>❓ <span class="sq">Çfarë ndodh nëse humbas një takim klubi për shkak të provimeve?</span><span class="en">What happens if I miss a club meeting due to exams?</span></h4>
+            <p><span class="sq">S'ka asnjë problem! Mësimi dhe klubet janë krijuar për t'ju mbështetur, thjesht flisni me drejtuesit e klubit paraprakisht.</span><span class="en">No problem at all! Clubs are designed to support you, just talk to the club leaders beforehand.</span></p>
+          </div>
+          <div class="faq-item">
+            <h4>❓ <span class="sq">A mund t'i ndryshoj të preferuarat e mia më vonë?</span><span class="en">Can I change my favorites later?</span></h4>
+            <p><span class="sq">Po, mund të shtosh ose heqësh çdo aktivitet nga të preferuarat në çdo moment duke klikuar ikonën e zemrës ❤️.</span><span class="en">Yes, you can add or remove any activity from your favorites at any time by clicking the heart icon ❤️.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Student Experiences Ticker -->
+      <section id="testimonials" class="section">
+        <h2 class="section-title">
+          <span class="sq">Përvojat e Nxënësve Tanë</span><span class="en">Student Experiences</span>
+        </h2>
+        <div class="auto-rotating-ticker testimonials-ticker">
+          <div class="ticker-track ticker-track-testimonials">
+            <div class="ticker-item testimonial-ticker-item">
+              💬 <em><span class="sq">"Pjesëmarrja në Klubin e Web Dev dhe kampionatin e futbollit e bëri përvojën time te Hermann Gmeiner fantastike!"</span><span class="en">"Joining the Web Dev Club and the football championship made my time at Hermann Gmeiner fantastic!"</span></em> — <strong>Arbi K. (<span class="sq">Klasa 11</span><span class="en">Grade 11</span>)</strong>
+            </div>
+            <div class="ticker-item testimonial-ticker-item">
+              ⭐ <em><span class="sq">"Përgatitja për Olimpiadën e Matematikës dhe Klubi i Marketingut më ndihmuan të fitoj besim në vetvete."</span><span class="en">"Preparing for the Math Olympiad and the Marketing Club helped me gain confidence in myself."</span></em> — <strong>Elsa M. (<span class="sq">Klasa 12</span><span class="en">Grade 12</span>)</strong>
+            </div>
+            <div class="ticker-item testimonial-ticker-item">
+              🚀 <em><span class="sq">"Krijimi i faqeve web gjatë orëve pas shkolle më dha mundësi të shkëlqyera praktike."</span><span class="en">"Building websites in after-school hours gave me excellent hands-on experience."</span></em> — <strong>Edison B. (<span class="sq">Nxënës</span><span class="en">Student</span>)</strong>
+            </div>
+            <div class="ticker-item testimonial-ticker-item">
+              💬 <em><span class="sq">"Pjesëmarrja në Klubin e Web Dev dhe kampionatin e futbollit e bëri përvojën time te Hermann Gmeiner fantastike!"</span><span class="en">"Joining the Web Dev Club and the football championship made my time at Hermann Gmeiner fantastic!"</span></em> — <strong>Arbi K. (<span class="sq">Klasa 11</span><span class="en">Grade 11</span>)</strong>
+            </div>
+            <div class="ticker-item testimonial-ticker-item">
+              ⭐ <em><span class="sq">"Përgatitja për Olimpiadën e Matematikës dhe Klubi i Marketingut më ndihmuan të fitoj besim në vetvete."</span><span class="en">"Preparing for the Math Olympiad and the Marketing Club helped me gain confidence in myself."</span></em> — <strong>Elsa M. (<span class="sq">Klasa 12</span><span class="en">Grade 12</span>)</strong>
+            </div>
+            <div class="ticker-item testimonial-ticker-item">
+              🚀 <em><span class="sq">"Krijimi i faqeve web gjatë orëve pas shkolle më dha mundësi të shkëlqyera praktike."</span><span class="en">"Building websites in after-school hours gave me excellent hands-on experience."</span></em> — <strong>Edison B. (<span class="sq">Nxënës</span><span class="en">Student</span>)</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- 9. About Section -->
+      <section id="about" class="section section-alt">
+        <h2 class="section-title">
+          <span class="sq">Rreth Shkollës Hermann Gmeiner</span><span class="en">About Hermann Gmeiner School</span>
+        </h2>
+        <div class="image-hover-card">
+          <div class="image-hover-content">
+            <p class="about-text-hover">
+              <span class="sq">Shkolla Hermann Gmeiner është e përkushtuar në zhvillimin akademik, teknologjik dhe sportiv të nxënësve. Përmes klubeve tona të zhvillimit të website-ve, teatrit, kampionateve sportive dhe përgatitjeve për olimpiada, ne ndërtojmë liderët e së ardhmes.</span>
+              <span class="en">Hermann Gmeiner School is dedicated to the academic, technological, and athletic excellence of our students. Through our web development, drama, sports tournaments, and Olympiad prep, we shape the leaders of tomorrow.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+ 
+    <!-- Registration Modal Popup -->
+    <div id="registration-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close-btn" aria-label="Close">&times;</button>
+        <h3 id="modal-activity-title"></h3>
+        <p id="modal-activity-info" class="modal-activity-meta"></p>
+ 
+        <form id="registration-form" novalidate>
+          <input type="hidden" id="modal-activity-id">
+          <div class="form-group">
+            <label for="reg-fullname"><span class="sq">Emri i Plotë *</span><span class="en">Full Name *</span></label>
+            <input type="text" id="reg-fullname" required>
+            <span class="error-msg" id="name-error"><span class="sq">Ju lutemi shkruani emrin tuaj të plotë.</span><span class="en">Please enter your full name.</span></span>
+          </div>
+          <div class="form-group">
+            <label for="reg-email"><span class="sq">Adresa e Email-it *</span><span class="en">Email Address *</span></label>
+            <input type="email" id="reg-email" required placeholder="john.doe@example.com">
+            <span class="error-msg" id="email-error"><span class="sq">Ju lutemi shkruani një adresë email-i të saktë.</span><span class="en">Please enter a valid email address.</span></span>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary w-100">
+              <span class="sq">Konfirmo Regjistrimin</span><span class="en">Confirm Registration</span>
+            </button>
+          </div>
+          <div id="reg-success-msg" class="success-msg hidden">
+            ✅ <span class="sq">U regjistruat me sukses! Mund ta shihni te "Regjistrimet e Mia".</span><span class="en">Successfully registered! You can view it under "My Registrations".</span>
+          </div>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- 10. Footer -->
+    <footer class="footer full-footer-bg">
+      <div class="footer-overlay-content">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3><span class="sq">Shkolla Hermann Gmeiner</span><span class="en">Hermann Gmeiner School</span></h3>
+            <p>
+              <span class="sq">Fuqizojmë nxënësit përmes teknologjisë, sportit dhe artit.</span>
+              <span class="en">Empowering students through technology, sports, and arts.</span>
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4><span class="sq">Lidhje të Shpejta</span><span class="en">Quick Links</span></h4>
+            <a href="#categories"><span class="sq">Kategoritë</span><span class="en">Categories</span></a>
+            <a href="#activities"><span class="sq">Aktivitetet</span><span class="en">Activities</span></a>
+            <a href="#my-registrations-section"><span class="sq">Regjistrimet e Mia</span><span class="en">My Registrations</span></a>
+            <a href="#spotlight"><span class="sq">Prapa Skenave</span><span class="en">Spotlight</span></a>
+            <a href="#faq"><span class="sq">Pyetje</span><span class="en">FAQ</span></a>
+            <a href="#about"><span class="sq">Rreth Nesh</span><span class="en">About Us</span></a>
+          </div>
+          <div class="footer-contact">
+            <h4><span class="sq">Kontakti i Zhvilluesit</span><span class="en">Web Development</span></h4>
+            <p>📞 <span class="sq">Telefon/WhatsApp:</span><span class="en">Phone/WhatsApp:</span> <a href="tel:0694858002" style="color: #60a5fa; text-decoration: none;">069 48 58 002</a></p>
+            <p>💬 <a href="https://wa.me/355694858002" target="_blank" rel="noopener" style="color: #22c55e; text-decoration: none;"><span class="sq">Shkruaj në WhatsApp</span><span class="en">Chat on WhatsApp</span></a></p>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2026 <span class="sq">Shkolla Hermann Gmeiner. Të gjitha të drejtat e rezervuara.</span><span class="en">Hermann Gmeiner School. All rights reserved.</span></p>
+        </div>
+      </div>
+    </footer>
+ 
+  </div> <!-- End page-wrapper -->
+ 
+  <script src="activities.js"></script>
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuBtn = document.getElementById("mobile-menu-toggle");
+      const navLinksContainer = document.getElementById("nav-links-container");
+      if (mobileMenuBtn && navLinksContainer) {
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenuBtn.classList.toggle("active");
+          navLinksContainer.classList.toggle("active");
+        });
+        document.querySelectorAll(".nav-link-item").forEach(link => {
+          link.addEventListener("click", () => {
+            mobileMenuBtn.classList.remove("active");
+            navLinksContainer.classList.remove("active");
+          });
+        });
+      }
+ 
+      let activities = [];
+      let registrations = [];
+      let favorites = [];
+      let favoritesOnly = false;
+      let currentSort = "default";
+
+      try { registrations = JSON.parse(localStorage.getItem("hg_registrations")) || []; } catch (e) {}
+      try { favorites = JSON.parse(localStorage.getItem("hg_favorites")) || []; } catch (e) {}
+ 
+      const root = document.documentElement;
+      const gridEl = document.getElementById("activities-grid");
+      const searchInput = document.getElementById("search-input");
+      const categoryFilter = document.getElementById("category-filter");
+      const sortSelect = document.getElementById("sort-select");
+      const favFilterBtn = document.getElementById("fav-filter-btn");
+      const favCountEl = document.getElementById("fav-count");
+      const emptyStateEl = document.getElementById("empty-state");
+      const resetFiltersBtn = document.getElementById("reset-filters-btn");
+      const langSwitch = document.getElementById("lang-checkbox-trigger");
+ 
+      const modal = document.getElementById("registration-modal");
+      const modalClose = document.getElementById("modal-close");
+      const regForm = document.getElementById("registration-form");
+      const modalTitle = document.getElementById("modal-activity-title");
+      const modalInfo = document.getElementById("modal-activity-info");
+      const modalActivityId = document.getElementById("modal-activity-id");
+      const nameInput = document.getElementById("reg-fullname");
+      const emailInput = document.getElementById("reg-email");
+      const nameError = document.getElementById("name-error");
+      const emailError = document.getElementById("email-error");
+      const successMsg = document.getElementById("reg-success-msg");
+ 
+      const lookupEmail = document.getElementById("lookup-email");
+      const lookupBtn = document.getElementById("lookup-btn");
+      const lookupResult = document.getElementById("my-registrations-result");
+
+      function showToast(msg) {
+        let toast = document.getElementById("toast-notification");
+        if (!toast) {
+          toast = document.createElement("div");
+          toast.id = "toast-notification";
+          document.body.appendChild(toast);
+        }
+        toast.textContent = msg;
+        toast.className = "toast show";
+        setTimeout(() => {
+          toast.className = "toast";
+        }, 2500);
+      }
+ 
+      const T = {
+        en: {
+          title: "Hermann Gmeiner School — School Activities",
+          search: "Search by activity title...",
+          emailPh: "Enter your email...",
+          namePh: "E.g. John Doe",
+          all: "All Categories",
+          cats: { Sports: "Sports", Technology: "Technology", Arts: "Arts", Education: "Education" },
+          sortDefault: "Sort by...",
+          sortDateAsc: "Date: Earliest first",
+          sortDateDesc: "Date: Latest first",
+          sortTitleAsc: "Title (A-Z)",
+          sortTitleDesc: "Title (Z-A)",
+          register: "Register",
+          capacity: n => `👥 Capacity: ${n} students`,
+          registerFor: t => `Register for: ${t}`,
+          loadError: "Could not load activities.",
+          badEmail: "Please enter a valid email address.",
+          none: e => `No registrations found for <strong>${e}</strong>.`,
+          regsFor: "Registrations for",
+          regBy: "Registered by:",
+          activity: "Activity",
+          favAdded: "Added to favorites ❤️",
+          favRemoved: "Removed from favorites 🤍"
+        },
+        sq: {
+          title: "Shkolla Hermann Gmeiner — Aktivitetet Shkollore",
+          search: "Kërko sipas titullit të aktivitetit...",
+          emailPh: "Fut email-in tuaj...",
+          namePh: "P.sh. Arben Hoxha",
+          all: "Të Gjitha Kategoritë",
+          cats: { Sports: "Sporte", Technology: "Teknologji", Arts: "Art", Education: "Arsim" },
+          sortDefault: "Rendit sipas...",
+          sortDateAsc: "Data: Më e afërta e para",
+          sortDateDesc: "Data: Më e largëta e para",
+          sortTitleAsc: "Titulli (A-Z)",
+          sortTitleDesc: "Titulli (Z-A)",
+          register: "Regjistrohu",
+          capacity: n => `👥 Kapaciteti: ${n} nxënës`,
+          registerFor: t => `Regjistrohu për: ${t}`,
+          loadError: "Aktivitetet nuk u ngarkuan.",
+          badEmail: "Ju lutemi vendosni një adresë email-i të saktë.",
+          none: e => `Nuk u gjet asnjë regjistrim për <strong>${e}</strong>.`,
+          regsFor: "Regjistrimet për",
+          regBy: "Regjistruar nga:",
+          activity: "Aktivitet",
+          favAdded: "U shtua te të preferuarat ❤️",
+          favRemoved: "U hoq nga të preferuarat 🤍"
+        }
+      };
+      const ICONS = { Sports: "⚽", Technology: "💻", Arts: "🎨", Education: "📚" };
+ 
+      const lang = () => (root.getAttribute("data-lang") === "sq" ? "sq" : "en");
+      const isAlbanian = () => lang() === "sq";
+ 
+      function esc(s) {
+        return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      }
+ 
+      function updateFavCount() {
+        if (favCountEl) favCountEl.textContent = favorites.length;
+        if (favFilterBtn) {
+          if (favoritesOnly) {
+            favFilterBtn.classList.add("active-fav-filter");
+          } else {
+            favFilterBtn.classList.remove("active-fav-filter");
+          }
+        }
+      }
+
+      function applyLangStatics() {
+        const t = T[lang()];
+        document.title = t.title;
+        root.lang = lang();
+        searchInput.placeholder = t.search;
+        lookupEmail.placeholder = t.emailPh;
+        nameInput.placeholder = t.namePh;
+        categoryFilter.options[0].textContent = t.all;
+        for (let i = 1; i < categoryFilter.options.length; i++) {
+          const o = categoryFilter.options[i];
+          o.textContent = t.cats[o.value] || o.value;
+        }
+        if (sortSelect) {
+          sortSelect.options[0].textContent = t.sortDefault;
+          sortSelect.options[1].textContent = t.sortDateAsc;
+          sortSelect.options[2].textContent = t.sortDateDesc;
+          sortSelect.options[3].textContent = t.sortTitleAsc;
+          sortSelect.options[4].textContent = t.sortTitleDesc;
+        }
+        langSwitch.checked = isAlbanian();
+        updateFavCount();
+      }
+ 
+      function setLang(code) {
+        root.setAttribute("data-lang", code);
+        try { localStorage.setItem("hg_lang", code); } catch (e) {}
+        applyLangStatics();
+        filterAndSortActivities();
+        if (lookupResult.innerHTML.trim()) triggerLookup();
+        if (!modal.classList.contains("hidden") && modalActivityId.value) {
+          fillModal(parseInt(modalActivityId.value));
+        }
+      }
+ 
+      langSwitch.addEventListener("change", () => setLang(langSwitch.checked ? "sq" : "en"));
+ 
+      async function initActivities() {
+        try {
+          const response = await fetch("activities.json");
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          activities = await response.json();
+        } catch (error) {
+          if (window.ACTIVITIES_FALLBACK) {
+            activities = window.ACTIVITIES_FALLBACK;
+          } else {
+            console.error("Error loading activities:", error);
+            gridEl.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: red;">${T[lang()].loadError}</p>`;
+            return;
+          }
+        }
+        filterAndSortActivities();
+      }
+ 
+      function renderActivities(items) {
+        gridEl.innerHTML = "";
+        if (items.length === 0) {
+          emptyStateEl.classList.remove("hidden");
+          return;
+        }
+        emptyStateEl.classList.add("hidden");
+ 
+        const sq = isAlbanian();
+        const t = T[lang()];
+ 
+        items.forEach(act => {
+          const title = sq ? act.title_sq : act.title_en;
+          const desc = sq ? act.description_sq : act.description_en;
+          const location = sq ? act.location_sq : act.location_en;
+          const icon = ICONS[act.category] || "🎓";
+          const isFav = favorites.includes(act.id);
+ 
+          const card = document.createElement("article");
+          card.className = "activity-card";
+          card.innerHTML = `
+            <div class="card-image-container">
+              <span class="card-fallback-icon" aria-hidden="true">${icon}</span>
+              <img class="card-photo" src="${esc(act.image)}" alt="${esc(title)}" loading="lazy" referrerpolicy="no-referrer">
+              <span class="badge">${esc(t.cats[act.category] || act.category)}</span>
+              <button class="fav-btn ${isFav ? 'favorited' : ''}" data-id="${act.id}" title="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+                ${isFav ? '❤️' : '🤍'}
+              </button>
+            </div>
+            <div class="card-content">
+              <h3>${esc(title)}</h3>
+              <p class="activity-date">📅 ${esc(act.date)} • ${esc(act.time)}</p>
+              <p class="activity-location">📍 ${esc(location)}</p>
+              <p class="activity-desc">${esc(desc)}</p>
+              <p class="activity-capacity">${t.capacity(act.capacity)}</p>
+              <button class="btn btn-card register-btn" data-id="${act.id}">${t.register}</button>
+            </div>
+          `;
+          card.querySelector(".card-photo").addEventListener("error", e => e.target.remove());
+          gridEl.appendChild(card);
+        });
+ 
+        gridEl.querySelectorAll(".register-btn").forEach(btn => {
+          btn.addEventListener("click", () => openRegistrationModal(parseInt(btn.dataset.id)));
+        });
+
+        gridEl.querySelectorAll(".fav-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = parseInt(btn.dataset.id);
+            toggleFavorite(id, btn);
+          });
+        });
+      }
+
+      function toggleFavorite(id, btnEl) {
+        const index = favorites.indexOf(id);
+        const t = T[lang()];
+        if (index > -1) {
+          favorites.splice(index, 1);
+          showToast(t.favRemoved);
+        } else {
+          favorites.push(id);
+          showToast(t.favAdded);
+          if (btnEl) {
+            btnEl.classList.add("pulse-anim");
+            setTimeout(() => btnEl.classList.remove("pulse-anim"), 400);
+          }
+        }
+        try { localStorage.setItem("hg_favorites", JSON.stringify(favorites)); } catch (e) {}
+        updateFavCount();
+        filterAndSortActivities();
+      }
+ 
+      function filterAndSortActivities() {
+        const query = searchInput.value.toLowerCase().trim();
+        const selectedCategory = categoryFilter.value;
+        const sq = isAlbanian();
+ 
+        let filtered = activities.filter(act => {
+          const title = sq ? act.title_sq : act.title_en;
+          const matchesTitle = title.toLowerCase().includes(query);
+          const matchesCategory = (selectedCategory === "All" || act.category === selectedCategory);
+          const matchesFav = !favoritesOnly || favorites.includes(act.id);
+          return matchesTitle && matchesCategory && matchesFav;
+        });
+
+        filtered.sort((a, b) => {
+          let comparison = 0;
+          if (currentSort === "date-asc") {
+            comparison = new Date(a.date) - new Date(b.date);
+          } else if (currentSort === "date-desc") {
+            comparison = new Date(b.date) - new Date(a.date);
+          } else if (currentSort === "title-asc") {
+            const tA = sq ? a.title_sq : a.title_en;
+            const tB = sq ? b.title_sq : b.title_en;
+            comparison = tA.localeCompare(tB);
+          } else if (currentSort === "title-desc") {
+            const tA = sq ? a.title_sq : a.title_en;
+            const tB = sq ? b.title_sq : b.title_en;
+            comparison = tB.localeCompare(tA);
+          }
+          if (comparison === 0) {
+            comparison = a.id - b.id;
+          }
+          return comparison;
+        });
+
+        renderActivities(filtered);
+      }
+ 
+      searchInput.addEventListener("input", filterAndSortActivities);
+      categoryFilter.addEventListener("change", filterAndSortActivities);
+      
+      if (sortSelect) {
+        sortSelect.addEventListener("change", (e) => {
+          currentSort = e.target.value;
+          filterAndSortActivities();
+        });
+      }
+
+      if (favFilterBtn) {
+        favFilterBtn.addEventListener("click", () => {
+          favoritesOnly = !favoritesOnly;
+          updateFavCount();
+          filterAndSortActivities();
+        });
+      }
+
+      if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener("click", () => {
+          searchInput.value = "";
+          categoryFilter.value = "All";
+          sortSelect.value = "default";
+          currentSort = "default";
+          favoritesOnly = false;
+          updateFavCount();
+          filterAndSortActivities();
+        });
+      }
+ 
+      function fillModal(activityId) {
+        const act = activities.find(a => a.id === activityId);
+        if (!act) return;
+        const sq = isAlbanian();
+        const title = sq ? act.title_sq : act.title_en;
+        const location = sq ? act.location_sq : act.location_en;
+        modalTitle.textContent = T[lang()].registerFor(title);
+        modalInfo.textContent = `${act.date} | ${act.time} | 📍 ${location}`;
+      }
+ 
+      function openRegistrationModal(activityId) {
+        const act = activities.find(a => a.id === activityId);
+        if (!act) return;
+ 
+        modalActivityId.value = act.id;
+        fillModal(act.id);
+ 
+        nameInput.value = "";
+        emailInput.value = "";
+        nameError.style.display = "none";
+        emailError.style.display = "none";
+        successMsg.classList.add("hidden");
+        regForm.style.display = "block";
+        regForm.querySelectorAll(".form-group, .form-actions").forEach(el => el.style.display = "");
+        modal.classList.remove("hidden");
+      }
+ 
+      modalClose.addEventListener("click", () => modal.classList.add("hidden"));
+      window.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
+ 
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+ 
+      regForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let isValid = true;
+ 
+        const fullName = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const actId = parseInt(modalActivityId.value);
+ 
+        if (!fullName) { nameError.style.display = "block"; isValid = false; }
+        else { nameError.style.display = "none"; }
+ 
+        if (!email || !isValidEmail(email)) { emailError.style.display = "block"; isValid = false; }
+        else { emailError.style.display = "none"; }
+ 
+        if (isValid) {
+          registrations.push({ id: Date.now(), activityId: actId, fullName, email, timestamp: new Date().toISOString() });
+          try { localStorage.setItem("hg_registrations", JSON.stringify(registrations)); } catch (err) {}
+ 
+          regForm.style.display = "none";
+          successMsg.classList.remove("hidden");
+          regForm.style.display = "block";
+          regForm.querySelectorAll(".form-group, .form-actions").forEach(el => el.style.display = "none");
+ 
+          setTimeout(() => {
+            modal.classList.add("hidden");
+            regForm.querySelectorAll(".form-group, .form-actions").forEach(el => el.style.display = "");
+            if (lookupEmail.value.trim().toLowerCase() === email.toLowerCase()) triggerLookup();
+          }, 1800);
+        }
+      });
+ 
+      function triggerLookup() {
+        const emailVal = lookupEmail.value.trim().toLowerCase();
+        const sq = isAlbanian();
+        const t = T[lang()];
+ 
+        if (!emailVal || !isValidEmail(emailVal)) {
+          lookupResult.innerHTML = `<p class="error-text">${t.badEmail}</p>`;
+          return;
+        }
+ 
+        const userRegs = registrations.filter(r => r.email.toLowerCase() === emailVal);
+        if (userRegs.length === 0) {
+          lookupResult.innerHTML = `<p class="empty-text">${t.none(esc(emailVal))}</p>`;
+          return;
+        }
+ 
+        let html = `<h4>${t.regsFor} ${esc(emailVal)}:</h4><div class="user-regs-list">`;
+        userRegs.forEach(reg => {
+          const act = activities.find(a => a.id === reg.activityId);
+          const actTitle = act ? (sq ? act.title_sq : act.title_en) : t.activity;
+          const actLoc = act ? (sq ? act.location_sq : act.location_en) : "";
+          html += `
+            <div class="user-reg-item">
+              <h5>${esc(actTitle)}</h5>
+              <p>📅 ${act ? esc(act.date) : ""} ${act ? esc(act.time) : ""} | 📍 ${esc(actLoc)}</p>
+              <p class="reg-name">${t.regBy} <strong>${esc(reg.fullName)}</strong></p>
+            </div>`;
+        });
+        html += `</div>`;
+        lookupResult.innerHTML = html;
+      }
+ 
+      lookupBtn.addEventListener("click", triggerLookup);
+      lookupEmail.addEventListener("keypress", (e) => { if (e.key === "Enter") triggerLookup(); });
+ 
+      const book = document.getElementById("flying-book");
+      let ticking = false;
+      function updateBook() {
+        ticking = false;
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+        const vh = window.innerHeight;
+        const y = progress * vh * 0.45;
+        const x = Math.sin(progress * Math.PI * 6) * 60;
+        const rot = window.scrollY * 0.35;
+        if (book) {
+          book.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+          book.style.setProperty("--book-rot", rot + "deg");
+        }
+      }
+      window.addEventListener("scroll", () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateBook); }
+      }, { passive: true });
+      window.addEventListener("resize", updateBook);
+      updateBook();
+ 
+      applyLangStatics();
+      initActivities();
+    });
+  </script>
+</body>
+</html>
